@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>K.D JEWELLERY | Jewellery Store</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <img src="image/logo/logo.jpg" alt="K.D JEWELLERY" class="logo-img">
+            K.D JEWELLERY
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#categories">Categories</a>
+            <a href="#products">Products</a>
+            <a href="#rates">Gold & Silver Rates</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+
+    <!-- HOME SECTION -->
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <h1>K.D JEWELLERY</h1>
+
+            <p>
+                Discover beautiful jewellery for every special moment.
+            </p>
+
+            <button onclick="showMessage()">
+                Explore Collection
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- CATEGORIES -->
+<!-- CATEGORIES -->
+<section id="categories">
+
+    <h2>Our Categories</h2>
+
+    <div class="category-container">
+
+        <a href="category.html?type=necklace" class="category-card">
+            <img src="image/categories/necklace.jpg" alt="Necklaces">
+            <h3>Necklaces</h3>
+        </a>
+
+        <a href="category.html?type=ring" class="category-card">
+            <img src="image/categories/ring.jpg" alt="Rings">
+            <h3>Rings</h3>
+        </a>
+
+        <a href="category.html?type=earring" class="category-card">
+            <img src="image/categories/earring.jpg" alt="Earrings">
+            <h3>Earrings</h3>
+        </a>
+
+        <a href="category.html?type=bangle" class="category-card">
+            <img src="image/categories/bangle.jpg" alt="Bangles">
+            <h3>Bangles</h3>
+        </a>
+
+        <a href="category.html?type=bracelet" class="category-card">
+            <img src="image/categories/bracelet.jpg" alt="Bracelets">
+            <h3>Bracelets</h3>
+        </a>
+
+        <a href="category.html?type=mangalsutra" class="category-card">
+            <img src="image/categories/mangalsutra.jpg" alt="Mangalsutra">
+            <h3>Mangalsutra</h3>
+        </a>
+
+        <a href="category.html?type=chain" class="category-card">
+            <img src="image/categories/chain.jpg" alt="Chains">
+            <h3>Chains</h3>
+        </a>
+
+        <a href="category.html?type=pendant" class="category-card">
+            <img src="image/categories/pendant.jpg" alt="Pendants">
+            <h3>Pendants</h3>
+        </a>
+
+        <a href="category.html?type=nose-pin" class="category-card">
+            <img src="image/categories/nose-pin.jpg" alt="Nose Pins">
+            <h3>Nose Pins</h3>
+        </a>
+
+        <a href="category.html?type=anklet" class="category-card">
+            <img src="image/categories/anklet.jpg" alt="Anklets">
+            <h3>Anklets</h3>
+        </a>
+
+    </div>
+
+</section>
+    <!-- FESTIVAL SECTION -->
+    <section id="festival">
+
+        <h2>Special Collections</h2>
+
+        <div class="festival-container">
+
+            <div class="festival-card">
+                <h3>Wedding Collection</h3>
+                <p>Beautiful jewellery for your special day.</p>
+            </div>
+
+            <div class="festival-card">
+                <h3>Diwali Collection</h3>
+                <p>Celebrate Diwali with elegant jewellery.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- GOLD & SILVER RATES -->
+    <section id="rates">
+
+        <h2>Gold & Silver Rates</h2>
+
+        <div class="rate-container">
+
+            <div class="rate-card">
+                <h3>Gold</h3>
+                <p>₹ 7,000 / gram</p>
+            </div>
+
+            <div class="rate-card">
+                <h3>Silver</h3>
+                <p>₹ 100 / gram</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CALCULATOR -->
+    <section id="calculator">
+
+        <h2>Jewellery Calculator</h2>
+
+        <label for="weight">
+            Enter Weight (grams):
+        </label>
+
+        <input
+            type="number"
+            id="weight"
+            placeholder="Example: 10"
+        >
+
+        <button onclick="calculateGold()">
+            Calculate Gold Price
+        </button>
+
+        <h3 id="result"></h3>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact">
+
+        <h2>Contact K.D JEWELLERY</h2>
+
+        <p>📍 Nawanager Post Nigahi distric Singruali, Madhya Pradesh</p>
+
+        <p>📞 +916260266463</p>
+        <p>📞 +919399231265</p>
+
+        <p>✉️ premwebdeb0@gmail.com</p>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            © 2026 K.D JEWELLERY. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+</html>

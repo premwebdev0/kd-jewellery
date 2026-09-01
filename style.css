@@ -1,0 +1,1378 @@
+
+/* =========================================================
+   K.D JEWELLERY - RESPONSIVE STYLE
+   ========================================================= */
+
+
+/* =========================
+   THEME
+   ========================= */
+
+:root {
+    --gold: #d4af37;
+    --gold-dark: #b8941f;
+    --maroon: #6b1e2a;
+    --cream: #fdf6ec;
+    --charcoal: #1a1a1a;
+    --white: #ffffff;
+    --text: #333333;
+    --muted: #666666;
+}
+
+
+/* =========================
+   RESET
+   ========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+
+/* =========================
+   HEADER
+   ========================= */
+
+header {
+    background: var(--charcoal);
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+    padding: 10px 5%;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    min-height: 70px;
+}
+
+
+/* LOGO */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    color: white;
+    white-space: nowrap;
+}
+
+.logo-img {
+    width: 48px;
+    height: 48px;
+
+    object-fit: cover;
+    border-radius: 50%;
+
+    border: 2px solid var(--gold);
+}
+
+
+/* NAVIGATION */
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 22px;
+}
+
+nav a {
+    position: relative;
+
+    color: #eeeeee;
+    text-decoration: none;
+
+    font-size: 15px;
+    white-space: nowrap;
+
+    padding: 5px 0;
+
+    transition: 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+nav a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--gold);
+
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+
+/* =========================
+   HERO
+   ========================= */
+
+.hero {
+    min-height: 650px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 60px 20px;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.42),
+            rgba(0, 0, 0, 0.42)
+        ),
+        url("image/banner/hero.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-content {
+    width: 100%;
+    max-width: 750px;
+
+    color: white;
+    padding: 30px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 6vw, 64px);
+    margin-bottom: 18px;
+    font-weight: 700;
+
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        var(--gold),
+        #ffffff
+    );
+
+    background-size: 200% auto;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    animation: shimmer 4s linear infinite;
+}
+
+.hero p {
+    font-size: clamp(17px, 2vw, 22px);
+    margin-bottom: 30px;
+
+    color: white;
+}
+
+.hero button {
+    background: linear-gradient(
+        135deg,
+        var(--gold),
+        var(--gold-dark)
+    );
+
+    color: white;
+
+    border: none;
+
+    padding: 14px 30px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    transition: 0.3s ease;
+
+    box-shadow:
+        0 5px 20px rgba(212, 175, 55, 0.35);
+}
+
+.hero button:hover {
+    transform: translateY(-3px);
+}
+
+
+/* =========================
+   COMMON SECTION
+   ========================= */
+
+section {
+    padding: 70px 5%;
+    text-align: center;
+}
+
+section h2 {
+    position: relative;
+
+    display: inline-block;
+
+    font-size: clamp(28px, 4vw, 38px);
+
+    margin-bottom: 45px;
+
+    color: #222;
+
+    padding-bottom: 14px;
+}
+
+section h2::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 70px;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--gold),
+            var(--maroon)
+        );
+
+    border-radius: 3px;
+}
+
+
+/* =========================
+   CATEGORIES
+   ========================= */
+
+#categories {
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            var(--cream) 100%
+        );
+}
+
+.category-container {
+    width: 100%;
+    max-width: 1250px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 25px;
+}
+
+.category-card {
+    display: block;
+
+    background: white;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    text-decoration: none;
+
+    color: var(--text);
+
+    border: 1px solid rgba(212, 175, 55, 0.18);
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.07);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 15px 35px rgba(212, 175, 55, 0.25);
+}
+
+.category-card img {
+    width: 100%;
+
+    height: 220px;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: transform 0.4s ease;
+}
+
+.category-card:hover img {
+    transform: scale(1.06);
+}
+
+.category-card h3 {
+    padding: 16px 10px;
+
+    text-align: center;
+
+    font-size: 18px;
+
+    color: #b08d1a;
+}
+
+
+/* =========================
+   CATEGORY PAGE
+   ========================= */
+
+#category-heading {
+    text-align: center;
+
+    font-size: clamp(30px, 5vw, 42px);
+
+    color: #222;
+
+    padding: 45px 20px 15px;
+}
+
+
+/* PRODUCT GRID */
+
+.necklace-products {
+    width: 100%;
+    max-width: 1300px;
+
+    margin: auto;
+
+    padding: 25px 5% 70px;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 25px;
+}
+
+.product-card {
+    display: block;
+
+    background: white;
+
+    border: 1px solid #e5e5e5;
+
+    border-radius: 14px;
+
+    padding: 14px;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    color: inherit;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.06);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 14px 30px rgba(212, 175, 55, 0.22);
+}
+
+.product-card img {
+    width: 100%;
+
+    height: 260px;
+
+    object-fit: contain;
+
+    display: block;
+
+    border-radius: 10px;
+
+    background: #faf7f1;
+
+    transition: transform 0.4s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.05);
+}
+
+.product-card h3 {
+    margin: 14px 0 5px;
+
+    font-size: 18px;
+
+    color: #333;
+}
+
+.product-card p {
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   FESTIVAL
+   ========================= */
+
+#festival {
+    background: var(--maroon);
+
+    color: white;
+}
+
+#festival h2 {
+    color: white;
+}
+
+.festival-container {
+    max-width: 1000px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 30px;
+}
+
+.festival-card {
+    padding: 65px 30px;
+
+    border-radius: 14px;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    border:
+        1px solid rgba(212, 175, 55, 0.4);
+
+    transition: 0.3s ease;
+}
+
+.festival-card:hover {
+    transform: translateY(-5px);
+
+    background:
+        rgba(255, 255, 255, 0.12);
+}
+
+.festival-card h3 {
+    font-size: 27px;
+
+    margin-bottom: 10px;
+
+    color: var(--gold);
+}
+
+
+/* =========================
+   RATES
+   ========================= */
+
+#rates {
+    background: var(--cream);
+}
+
+.rate-container {
+    width: 100%;
+    max-width: 850px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 30px;
+}
+
+.rate-card {
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.08);
+
+    border: 1px solid rgba(212, 175, 55, 0.15);
+
+    transition: 0.3s ease;
+}
+
+.rate-card:hover {
+    transform: translateY(-5px);
+}
+
+.rate-card:nth-child(1) {
+    border-top: 4px solid var(--gold);
+}
+
+.rate-card:nth-child(2) {
+    border-top: 4px solid #b0b0b0;
+}
+
+.rate-card h3 {
+    font-size: 25px;
+
+    margin-bottom: 10px;
+}
+
+.rate-card p {
+    font-size: 22px;
+
+    color: #b08d1a;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   CALCULATOR
+   ========================= */
+
+#calculator {
+    background:
+        linear-gradient(
+            135deg,
+            #f5eee3,
+            #ffffff
+        );
+}
+
+#calculator label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-weight: bold;
+}
+
+#weight {
+    width: 250px;
+    max-width: 100%;
+
+    padding: 13px;
+
+    border:
+        1px solid #ccc;
+
+    border-radius: 6px;
+
+    margin-right: 10px;
+
+    outline: none;
+}
+
+#weight:focus {
+    border-color: var(--gold);
+
+    box-shadow:
+        0 0 0 3px rgba(212, 175, 55, 0.15);
+}
+
+#calculator button {
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold),
+            var(--gold-dark)
+        );
+
+    color: white;
+
+    border: none;
+
+    padding: 13px 22px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+#result {
+    margin-top: 25px;
+
+    color: #b89626;
+}
+
+
+/* =========================
+   CONTACT
+   ========================= */
+
+#contact {
+    background: var(--charcoal);
+
+    color: white;
+}
+
+#contact h2 {
+    color: white;
+}
+
+#contact p {
+    margin: 8px 0;
+}
+
+
+/* =========================
+   FOOTER
+   ========================= */
+
+footer {
+    background: #111;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 20px;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   PRODUCT DETAIL PAGE
+   ========================= */
+
+.back-link {
+    display: inline-block;
+
+    margin: 25px 5%;
+
+    color: #b08d1a;
+
+    text-decoration: none;
+
+    font-weight: bold;
+}
+
+.product-detail-container {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 50px;
+
+    padding: 10px 5% 60px;
+}
+
+.product-detail-container > img {
+    width: 48%;
+
+    max-width: 500px;
+
+    height: 520px;
+
+    object-fit: contain;
+
+    border-radius: 14px;
+
+    background: #f8f4ec;
+}
+
+.product-info {
+    flex: 1;
+
+    min-width: 280px;
+
+    text-align: left;
+
+    padding-top: 15px;
+}
+
+.product-info h1 {
+    font-size: clamp(28px, 4vw, 42px);
+
+    margin-bottom: 20px;
+
+    color: #222;
+}
+
+.product-info p {
+    margin: 10px 0;
+
+    color: #555;
+}
+
+.product-info h3 {
+    margin-top: 25px;
+
+    margin-bottom: 8px;
+}
+
+.product-info button {
+    margin-top: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #25d366,
+            #128c7e
+        );
+
+    color: white;
+
+    border: none;
+
+    padding: 14px 24px;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    font-size: 15px;
+}
+
+.product-info button:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   RELATED PRODUCTS
+   ========================= */
+
+.related-heading {
+    text-align: left;
+
+    padding: 0 5%;
+
+    margin-bottom: 25px;
+}
+
+.related-products-grid {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+
+    padding: 0 5% 60px;
+}
+
+.related-card {
+    display: block;
+
+    text-decoration: none;
+
+    color: inherit;
+
+    background: white;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.08);
+
+    transition: 0.3s ease;
+}
+
+.related-card:hover {
+    transform: translateY(-5px);
+}
+
+.related-card img {
+    width: 100%;
+
+    height: 190px;
+
+    object-fit: contain;
+
+    background: #faf7f1;
+
+    display: block;
+}
+
+.related-card p {
+    padding: 12px;
+
+    font-size: 14px;
+
+    color: #333;
+
+    text-align: center;
+}
+
+
+/* =========================
+   ANIMATIONS
+   ========================= */
+
+@keyframes shimmer {
+
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+
+}
+
+
+/* =========================
+   TABLET
+   901px - 1100px
+   ========================= */
+
+@media (max-width: 1100px) {
+
+    header {
+        padding: 10px 4%;
+    }
+
+    nav {
+        gap: 15px;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    .category-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .necklace-products {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .related-products-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+
+/* =========================
+   TABLET
+   701px - 900px
+   ========================= */
+
+@media (max-width: 900px) {
+
+    header {
+        flex-direction: column;
+
+        justify-content: center;
+
+        gap: 10px;
+
+        padding: 12px 4%;
+    }
+
+    .logo {
+        font-size: 19px;
+    }
+
+    nav {
+        width: 100%;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+        gap: 12px 18px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    .hero {
+        min-height: 570px;
+    }
+
+    .category-container {
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 18px;
+    }
+
+    .category-card img {
+        height: 200px;
+    }
+
+    .necklace-products {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 18px;
+    }
+
+    .product-card img {
+        height: 250px;
+    }
+
+    .related-products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .product-detail-container {
+        gap: 30px;
+    }
+
+    .product-detail-container > img {
+        width: 45%;
+        height: 430px;
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+   <= 700px
+   ========================= */
+
+@media (max-width: 700px) {
+
+    /* HEADER */
+
+    header {
+        min-height: auto;
+
+        padding: 12px 15px;
+
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 18px;
+
+        justify-content: center;
+    }
+
+    .logo-img {
+        width: 42px;
+        height: 42px;
+    }
+
+    nav {
+        gap: 8px 14px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        min-height: 500px;
+
+        padding: 40px 15px;
+    }
+
+    .hero-content {
+        padding: 20px 10px;
+    }
+
+    .hero p {
+        line-height: 1.5;
+
+        margin-bottom: 25px;
+    }
+
+    .hero button {
+        width: auto;
+
+        max-width: 100%;
+
+        padding: 13px 22px;
+    }
+
+
+    /* SECTIONS */
+
+    section {
+        padding: 50px 15px;
+    }
+
+    section h2 {
+        margin-bottom: 30px;
+    }
+
+
+    /* CATEGORY */
+
+    .category-container {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 14px;
+    }
+
+    .category-card {
+        border-radius: 10px;
+    }
+
+    .category-card img {
+        height: 170px;
+    }
+
+    .category-card h3 {
+        font-size: 15px;
+
+        padding: 12px 5px;
+    }
+
+
+    /* PRODUCT GRID */
+
+    .necklace-products {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 12px;
+
+        padding: 20px 15px 50px;
+    }
+
+    .product-card {
+        padding: 9px;
+
+        border-radius: 10px;
+    }
+
+    .product-card img {
+        height: 190px;
+    }
+
+    .product-card h3 {
+        font-size: 15px;
+
+        margin-top: 10px;
+    }
+
+    .product-card p {
+        font-size: 12px;
+    }
+
+
+    /* FESTIVAL */
+
+    .festival-container {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+    .festival-card {
+        padding: 45px 20px;
+    }
+
+
+    /* RATES */
+
+    .rate-container {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+    .rate-card {
+        padding: 28px 20px;
+    }
+
+
+    /* CALCULATOR */
+
+    #weight {
+        width: 100%;
+
+        margin: 0 0 12px;
+    }
+
+    #calculator button {
+        width: 100%;
+    }
+
+
+    /* PRODUCT DETAIL */
+
+    .back-link {
+        margin: 20px 15px;
+    }
+
+    .product-detail-container {
+        flex-direction: column;
+
+        gap: 25px;
+
+        padding: 10px 15px 45px;
+    }
+
+    .product-detail-container > img {
+        width: 100%;
+
+        max-width: none;
+
+        height: 350px;
+    }
+
+    .product-info {
+        width: 100%;
+
+        min-width: 0;
+
+        padding: 0;
+
+        text-align: left;
+    }
+
+    .product-info h1 {
+        font-size: 28px;
+    }
+
+    .product-info button {
+        width: 100%;
+    }
+
+
+    /* RELATED */
+
+    .related-heading {
+        padding: 0 15px;
+
+        font-size: 25px;
+    }
+
+    .related-products-grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 12px;
+
+        padding: 0 15px 45px;
+    }
+
+    .related-card img {
+        height: 160px;
+    }
+
+}
+
+
+/* =========================
+   SMALL MOBILE
+   <= 480px
+   ========================= */
+
+@media (max-width: 480px) {
+
+    header {
+        padding: 10px 10px;
+    }
+
+    .logo {
+        font-size: 16px;
+    }
+
+    .logo-img {
+        width: 38px;
+        height: 38px;
+    }
+
+    nav {
+        gap: 6px 10px;
+    }
+
+    nav a {
+        font-size: 11px;
+    }
+
+
+    .hero {
+        min-height: 450px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+
+    .category-container {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 10px;
+    }
+
+    .category-card img {
+        height: 145px;
+    }
+
+    .category-card h3 {
+        font-size: 14px;
+
+        padding: 10px 4px;
+    }
+
+
+    .necklace-products {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 10px;
+
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .product-card {
+        padding: 7px;
+    }
+
+    .product-card img {
+        height: 160px;
+    }
+
+    .product-card h3 {
+        font-size: 14px;
+    }
+
+    .product-card p {
+        font-size: 11px;
+    }
+
+
+    .product-detail-container > img {
+        height: 300px;
+    }
+
+
+    .related-products-grid {
+        gap: 10px;
+
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .related-card img {
+        height: 140px;
+    }
+
+
+    footer {
+        padding: 18px 10px;
+
+        font-size: 12px;
+    }
+
+}
+
+
+/* =========================
+   EXTRA SMALL DEVICES
+   <= 360px
+   ========================= */
+
+@media (max-width: 360px) {
+
+    .logo {
+        font-size: 15px;
+    }
+
+    nav {
+        gap: 5px 8px;
+    }
+
+    nav a {
+        font-size: 10px;
+    }
+
+    .category-card img {
+        height: 125px;
+    }
+
+    .product-card img {
+        height: 145px;
+    }
+
+}
