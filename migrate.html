@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head><title>Migrate Data</title></head>
+<body>
+    <h1>Migrating products.json to Firestore...</h1>
+    <div id="status"></div>
+
+    <script type="module">
+        import { db } from "./firebase-config.js";
+        import { collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+        fetch("data/products.json")
+            .then(res => res.json())
+            .then(async (products) => {
+                let count = 0;
+                for (const product of products) {
+                    await addDoc(collection(db, "products"), {
+                        name: product.name,
+                        category: product.category,
+                        metal: product.metal,
+                        purity: product.purity,
+                        weight: product.weight,
+                        occasion: product.occasion,
+                        image: product.image,
+                        description: product.description
+                    });
+                    count++;
+                    document.getElementById("status").textContent = `${count} / ${products.length} products migrated...`;
+                }
+                document.getElementById("status").textContent = `Done! ${count} products migrated to Firestore.`;
+            });
+    </script>
+</body>
+</html>

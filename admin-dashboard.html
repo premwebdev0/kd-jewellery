@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard - K.D Jewellery</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { padding: 30px; background: #f5f5f5; }
+        .admin-box { max-width: 900px; margin: auto; background: white; padding: 25px; border-radius: 10px; }
+        .admin-box input, .admin-box select { width: 100%; padding: 10px; margin: 6px 0; border: 1px solid #ccc; border-radius: 5px; }
+        .admin-box button { padding: 10px 20px; background: #d4af37; color: white; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+        table { width: 100%; margin-top: 25px; border-collapse: collapse; }
+        table, th, td { border: 1px solid #ddd; }
+        th, td { padding: 10px; text-align: left; }
+        .delete-btn { background: #c0392b; }
+    </style>
+</head>
+<body>
+
+    <div class="admin-box">
+        <h2>Admin Dashboard — K.D Jewellery</h2>
+        <p id="userEmail"></p>
+        <button id="logoutBtn" style="background:#555;">Logout</button>
+
+        <hr>
+
+        <h3>Add New Product</h3>
+        <input type="text" id="pName" placeholder="Product Name">
+        <select id="pCategory">
+            <option value="necklace">Necklace</option>
+            <option value="ring">Ring</option>
+            <option value="earring">Earring</option>
+            <option value="bangle">Bangle</option>
+            <option value="bracelet">Bracelet</option>
+            <option value="mangalsutra">Mangalsutra</option>
+            <option value="chain">Chain</option>
+            <option value="pendant">Pendant</option>
+            <option value="nose-pin">Nose Pin</option>
+            <option value="anklet">Anklet</option>
+        </select>
+        <input type="text" id="pMetal" placeholder="Metal (e.g. Gold)">
+        <input type="text" id="pPurity" placeholder="Purity (e.g. 22k)">
+        <input type="text" id="pWeight" placeholder="Weight (e.g. 15.5 g)">
+        <input type="text" id="pOccasion" placeholder="Occasion">
+        <input type="text" id="pImage" placeholder="Image filename (e.g. ring-15.jpg)">
+        <textarea id="pDescription" placeholder="Description"></textarea>
+        <button id="addBtn">Add Product</button>
+
+        <hr>
+
+        <h3>All Products</h3>
+        <table>
+            <thead>
+                <tr><th>Name</th><th>Category</th><th>Weight</th><th>Action</th></tr>
+            </thead>
+            <tbody id="productTable"></tbody>
+        </table>
+    </div>
+
+    <script type="module">
+        import { auth, db } from "./firebase-config.js";
+        import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+        import { collection, addDoc, getDocs, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+        // Check login, warna wapas bhej do
+        onAuthStateChanged(auth, (user) => {
+            if (!user) {
+                window.location.href = "admin-login.html";
+            } else {
+                document.getElementById("userEmail").textContent = "Logged in as: " + user.email;
+                loadProducts();
+            }
+        });
+
+        document.getElementById("logoutBtn").addEventListener("click", async () => {
+            await signOut(auth);
+            window.location.href = "admin-login.html";
+        });
+
+        document.getElementById("addBtn").addEventListener("click", async () => {
+            await addDoc(collection(db, "products"), {
+                name: document.getElementById("pName").value,
+                category: document.getElementById("pCategory").value,
+                metal: document.getElementById("pMetal").value,
+                purity: document.getElementById("pPurity").value,
+                weight: document.getElementById("pWeight").value,
+                occasion: document.getElementById("pOccasion").value,
+                image: document.getElementById("pImage").value,
+                description: document.getElementById("pDescription").value
+            });
+            alert("Product added!");
+            loadProducts();
+        });
+
+        async function loadProducts() {
+            const querySnapshot = await getDocs(collection(db, "products"));
+            let rows = "";
+            querySnapshot.forEach((docSnap) => {
+                const p = docSnap.data();
+                rows += `<tr>
+                    <td>${p.name}</td>
+                    <td>${p.category}</td>
+                    <td>${p.weight}</td>
+                    <td><button class="delete-btn" onclick="deleteProduct('${docSnap.id}')">Delete</button></td>
+                </tr>`;
+            });
+            document.getElementById("productTable").innerHTML = rows;
+        }
+
+        window.deleteProduct = async (id) => {
+            await deleteDoc(doc(db, "products", id));
+            loadProducts();
+        };
+    </script>
+
+</body>
+</html>

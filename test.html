@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Firebase Test</title>
+</head>
+<body>
+    <h1>Firebase Test Page</h1>
+    <button id="addBtn">Add Test Product</button>
+    <button id="getBtn">Get All Products</button>
+    <div id="output"></div>
+
+    <script type="module">
+        import { db } from "./firebase-config.js";
+        import { collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+        document.getElementById("addBtn").addEventListener("click", async () => {
+            await addDoc(collection(db, "products"), {
+                name: "Test Gold Ring",
+                price: 5000,
+                category: "ring"
+            });
+            alert("Product added!");
+        });
+
+        document.getElementById("getBtn").addEventListener("click", async () => {
+            const querySnapshot = await getDocs(collection(db, "products"));
+            let output = "";
+            querySnapshot.forEach((doc) => {
+                output += JSON.stringify(doc.data()) + "<br>";
+            });
+            document.getElementById("output").innerHTML = output;
+        });
+    </script>
+</body>
+</html>
